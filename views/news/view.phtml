@@ -6,18 +6,18 @@
             <?php else : ?>
                 <img src="http://placehold.it/250x250" class="img-responsive mg-tp-25"/>
             <?php endif; ?>
-            <? if (!empty($new->place)) : ?>
+            <?php if (!empty($new->place)) : ?>
                 <div style="margin-top: 10px">
                     <strong>Місце:</strong>&nbsp;&nbsp;
                     <?= $new->place ?>
                 </div>
             <?php endif; ?>
-            <? if (!empty($new->date)) : ?>
+            <?php if (!empty($new->date)) : ?>
                 <div><strong>Дата:</strong>&nbsp;&nbsp;
                     <?= date_format(date_create($new->date), 'd-m-Y'); ?>
                 </div>
             <?php endif; ?>
-            <? if (!empty($new->time)) : ?>
+            <?php if (!empty($new->time)) : ?>
                 <div><strong>Час:</strong> &nbsp;&nbsp;
                     <?= date_format(date_create($new->time), 'H:i'); ?>
                 </div>

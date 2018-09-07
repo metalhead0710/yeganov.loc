@@ -19,18 +19,18 @@
                 <?php else : ?>
                   <img src="http://placehold.it/250x250" class="img-responsive mg-tp-25"/>
                 <?php endif; ?>
-                <? if (!empty($new->place)) : ?>
+                <?php if (!empty($new->place)) : ?>
                   <div style="margin-top: 10px">
                     <strong>Місце:</strong>&nbsp;&nbsp;
                       <?= $new->place ?>
                   </div>
                 <?php endif; ?>
-                <? if (!empty($new->date)) : ?>
+                <?php if (!empty($new->date)) : ?>
                   <div><strong>Дата:</strong>&nbsp;&nbsp;
                       <?= date_format(date_create($new->date), 'd-m-Y'); ?>
                   </div>
                 <?php endif; ?>
-                <? if (!empty($new->time)) : ?>
+                <?php if (!empty($new->time)) : ?>
                   <div><strong>Час:</strong> &nbsp;&nbsp;
                       <?= date_format(date_create($new->time), 'H:i'); ?>
                   </div>
@@ -47,7 +47,7 @@
               </div>
             </div>
           </div>
-          <a href="/news/view/<?=$new->id?>" class="btn btn-success pull-right view-one">
+          <a href="/news/view/<?= $new->id ?>" class="btn btn-success pull-right view-one">
             <i class="fa fa-eye"></i>
             Переглянути
           </a>
@@ -65,39 +65,35 @@
       стилів від рок-н-роллу до фанку та від блюзу до хеві металу.</p>
     <h3 class="headers-h3">Склад</h3>
     <div class="row">
-        <?php foreach ($people
-
-                       as $person): ?>
-    <?php if (count($people) % 4 == 0) : ?>
-      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-          <?php else : ?>
-        <div class="col-md-4 col-sm-6 col-xs-12 text-center">
-            <?php endif; ?>
-          <img src="/upload/images/people/<?= $person->pic ?>"/>
-          <h3 class="text-center"><?= $person->name ?></h3>
-          <h4 class="text-center"><?= $person->position ?></h4>
-          <p class="text-justify"><?= $person->text ?></p>
-        </div>
-          <?php endforeach; ?>
-      </div>
-        <?php if (count($exPeople) > 0) : ?>
-      <h3 class="headers-h3">Колишні учасники</h3>
-      <div class="row">
-          <?php foreach ($exPeople
-
-                         as $person): ?>
-      <?php if (count($exPeople) % 4 == 0) : ?>
-        <div class="col-md-3 col-sm-6 col-xs-12 text-center">
-            <?php else : ?>
-          <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+        <?php foreach ($people as $person): ?>
+          <?php if (count($people) % 4 == 0) : ?>
+            <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+                <?php else : ?>
+              <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+                <?php endif; ?>
+                <img src="/upload/images/people/<?= $person->pic ?>"/>
+                <h3 class="text-center"><?= $person->name ?></h3>
+                <h4 class="text-center"><?= $person->position ?></h4>
+                <p class="text-justify"><?= $person->text ?></p>
+              </div>
+                <?php endforeach; ?>
+            </div>
+          <?php if (count($exPeople) > 0) : ?>
+            <h3 class="headers-h3">Колишні учасники</h3>
+            <div class="row">
+            <?php foreach ($exPeople as $person): ?>
+              <?php if (count($exPeople) % 4 == 0) : ?>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+              <?php else : ?>
+                 <div class="col-md-4 col-sm-6 col-xs-12 text-center">
               <?php endif; ?>
-            <img src="/upload/images/people/<?= $person->pic ?>"/>
-            <h3 class="text-center"><?= $person->name ?></h3>
-            <h4 class="text-center"><?= $person->position ?></h4>
-            <p class="text-justify"><?= $person->text ?></p>
-          </div>
+                <img src="/upload/images/people/<?= $person->pic ?>"/>
+                <h3 class="text-center"><?= $person->name ?></h3>
+                <h4 class="text-center"><?= $person->position ?></h4>
+                <p class="text-justify"><?= $person->text ?></p>
+              </div>
             <?php endforeach; ?>
-        </div>
+            </div>
           <?php endif; ?>
       </div>
     </div>
@@ -154,12 +150,10 @@
             <div class="video-container">
                 <?php foreach ($videos as $video) : ?>
                   <div class="video-item">
-
                     <h3><?= $video->title ?></h3>
                     <iframe src="https://www.youtube.com/embed/<?= $video->url ?>" frameborder="0" width="320" height="180"
                             allowfullscreen></iframe>
                   </div>
-
                 <?php endforeach; ?>
             </div>
           </div>
