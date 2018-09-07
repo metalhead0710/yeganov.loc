@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><?=$pageTitle?> | Ukrainian Rock Music
+		</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="keywords" content="рок, луцьк, рок-музика, yeganov, українська рок-музика"/>
+		<meta name="description" content="Ukrainian Rock Music, українська рок-музика"/>
+		<link rel="stylesheet" href="/assets/libs/bootstrap/css/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="/assets/css/font-awesome-animation.min.css"/>
+		<link href="/assets/img/favicon.png" rel="shortcut icon" type="image/png" />
+		<link rel="stylesheet" href="/assets/libs/fa/css/font-awesome.min.css" />		
+		<link rel="stylesheet" href="/assets/plugins/lightbox/simplelightbox.css" />		
+		<link rel="stylesheet" href="/assets/css/APlayer.min.css" />
+		<link type="text/css" rel="stylesheet" href="/assets/css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="/assets/css/slider.css"/>	
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108476476-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-108476476-1');
+		</script>		
+	</head>
+<body>
+	<div class="wrapper">
+		<ul class="body_slides">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+		<nav id="header" class="navbar">
+			<!-- Лого -->
+			<div class="container clearfix">
+				<div class="navbar-header logo">
+					<button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target="#mainMenu">
+						<i class="fa fa-bars fa-inverse fa-2x"></i>
+					</button>
+					<a href="/">
+						<img src="/assets/img/logo.png" alt="" />
+					</a>
+				</div>
+				
+				
+				<!-- Меню -->
+				
+				<div class="collapse navbar-collapse" id="mainMenu">
+					<ul class="menu">
+						<li><a href="#news" data-offset="100px">Новини</a></li>
+						<li><a href="#about" data-offset="100px">Про нас</a></li>
+						<li><a href="#photo" data-offset="100px">Фото</a></li>
+						<li><a href="#music" data-offset="100px">Музика</a></li>
+						<li><a href="#video" data-offset="100px">Відео</a></li>
+						<li><a href="#raider" data-offset="100px">Райдер</a></li>
+						<li><a href="#contacts" data-offset="100px">Контакти</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<?php include $contentPage; ?>
+		<div class="footer">
+			© <?php echo date("Y");?>. Проект Віталія Єганова/YEGANOV Project. Всі права захищено.
+		</div>
+		
+	</div>
+	<script src="/assets/libs/jQuery/jquery-3.2.0.min.js"></script>
+	<script src="/assets/libs/bootstrap/js/bootstrap.min.js"></script>
+	<script src ="/assets/js/simple-lightbox.min.js"></script>
+	<script src="/assets/js/APlayer.min.js"></script>
+	<script src="/assets/js/music.js"></script>
+	<script src="/assets/js/validate.js"></script>	
+	<script src="/assets/js/main.js"></script>
+		
+</body>
+</html>

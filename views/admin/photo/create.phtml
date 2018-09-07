@@ -1,0 +1,26 @@
+<div class="page-header">
+	<h1>Каталоги фотографій
+		<small>тут можна створити каталог</small>
+	</h1>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label> Назва категорії </label>
+		<input class="form-control" required name="name" placeholder="Назва категорії" type="text">
+	</div>
+    <div class="form-group">
+        <input class="form-control" required name="sort_order" placeholder="Порядковий номер" type="text">
+    </div>
+    <div class="form-group">
+        <input class="form-control"  name="pic" placeholder="Пікча" type="file">
+    </div>	
+	<button type="submit" name="submit" class="btn btn-primary save">
+	<i class="fa fa-check"></i>
+		Створити каталог
+	</button>
+	<a href="/admin/photo" class="btn btn-default">
+		<i class="fa fa-long-arrow-left"></i>
+		Назад
+	</a>	
+</form>

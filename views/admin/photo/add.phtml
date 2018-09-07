@@ -1,0 +1,20 @@
+<div class="page-header">
+	<h1>Фото
+		<small>ви редагуєте каталог <strong><?=$photocat->name?></strong></small>
+	</h1>
+</div>
+
+<form method="post" enctype="multipart/form-data">	
+    <div class="form-group">
+    	<label>Виберіть одне, або кілька фото </label>
+        <input class="form-control"  name="pic[]" placeholder="Пікча" type="file" multiple="multiple">
+    </div>	
+	<button type="submit" name="submit" class="btn btn-primary save">
+	<i class="fa fa-check"></i>
+		Завантажити фото
+	</button>
+	<a href="/admin/photo" class="btn btn-default">
+		<i class="fa fa-long-arrow-left"></i>
+		Назад
+	</a>	
+</form>

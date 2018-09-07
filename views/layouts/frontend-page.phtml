@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title><?= $pageTitle ?></title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <meta property="og:locale" content="uk_UA"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="<?=htmlspecialchars($pageTitle)?>"/>
+  <meta property="og:description" content="<?=(isset($new)) ? strip_tags($new->newtext) : ''?>"/>
+  <meta property="og:url" content="<?=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://{$_SERVER["HTTP_HOST"]}{$_SERVER["REQUEST_URI"]}"?>"/>
+  <meta property="og:image" content="<?=$ogImage?>"/>
+
+  <link rel="stylesheet" href="/assets/libs/bootstrap/css/bootstrap.min.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'/>
+  <link href="/assets/img/favicon.png" rel="shortcut icon" type="image/png"/>
+  <link rel="stylesheet" href="/assets/libs/fa/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="/assets/plugins/lightbox/simplelightbox.css"/>
+  <link type="text/css" rel="stylesheet" href="/assets/css/style.css"/>
+  <script src="/assets/libs/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="/assets/libs/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/assets/js/simple-lightbox.min.js"></script>
+  <style>
+    body {
+      background: url(/assets/img/background.jpg);
+      background-attachment: fixed;
+    }
+
+    nav {
+      background: #000;
+    }
+
+    .layout {
+      margin-top: 15vh;
+      color: #FFF;
+      z-index: 2;
+      min-height: calc(100vh - 184px);
+    }
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108476476-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108476476-1');
+  </script>
+</head>
+
+<body>
+<div class="wrapper">
+  <nav id="header" class="navbar">
+    <!-- Лого -->
+    <div class="container">
+      <div class="navbar-header logo">
+        <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target="#mainMenu">
+          <i class="fa fa-bars fa-inverse fa-2x"></i>
+        </button>
+        <a href="/">
+          <img src="/assets/img/logo.png" alt=""/>
+        </a>
+      </div>
+
+
+      <!-- Меню -->
+
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="menu">
+          <li><a href="/" class="btn btn-success">Назад</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="layout">
+        <?php include $contentPage; ?>
+    </div>
+  </div>
+  <div class="footer">
+    © <?php echo date("Y"); ?>. Проект Віталія Єганова/YEGANOV Project. Всі права захищено.
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $('.photo-link').simpleLightbox();
+  });
+</script>
+</body>
+</html>

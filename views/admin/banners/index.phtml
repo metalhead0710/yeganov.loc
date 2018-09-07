@@ -1,0 +1,150 @@
+<div class="page-header">
+	<h1>Банери
+		<small>тут можна додавати, редагувати та видаляти банери</small>
+	</h1>
+</div>
+<?=(!empty($feedback)) ? $feedback : ''?>
+<a href="#create-banner" data-toggle='modal' class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Додати банер</a>
+<div class="clearfix"></div>
+ <div class="table-container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Назва файлу</th>
+				<th>Порядок</th>
+				<th>Банер</th>
+				<th>Дії</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php if (count($banners) > 0) :?>
+			<?php foreach($banners as $banner) :?>
+			<tr data-id="<?=$banner->id ?>" data-order="<?=$banner->sort_order ?>">
+				<td>
+					<?=$banner->pic?>
+				</td>
+				<td>
+					<?=$banner->sort_order ?>
+				</td>
+				<td class="pic-in-td">
+					<?php if (!empty($banner->pic)) :?>
+						<img src="/upload/images/banners/thumbs/<?=$banner->pic?>" class="img-responsive" />
+					<?php else :?>
+						<img src="http://placehold.it/100x70?text=:(" class="img-responsive" />
+					<?php endif;?>
+				</td>
+				<td>
+					<div class="btn-group">
+						<a href="#change-order" data-toggle='modal' title="Змінити порядок" data-link="/admin/banners/update/<?=$banner->id ?>" class="btn btn-info change-order-trigger">
+							<i class="fa fa-arrows"></i>							
+						</a>
+						<a href="#modal" data-toggle='modal' title="Видалити" data-link="/admin/banners/remove/<?=$banner->id ?>" class="btn btn-danger delete">
+							<i class="fa fa-times"></i>							
+						</a> 
+					</div>
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		<?php else :?>
+			<td colspan="4" class="cell-middle">
+				<div class="note note-info text-center">
+				    <h4>
+				        Немає банерів, поки що...
+				    </h4>			    
+				</div>
+			</td>
+		<?php endif;?>
+		</tbody>		
+	</table>
+ </div>
+<div style="display: none;" class="modal fade" id="change-order" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header borderless">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+				<h4 class="modal-title">Змінити порядок?</h4>
+			</div>
+			<div class="modal-body">
+				<form method="post" class = "change-order-form">
+					<input type="hidden" name="id" class="id-change-order" />
+					<div class="form-group">
+						<input class="form-control order" name="sort_order" placeholder="Порядок" type="text" value="">
+					</div>
+					<button type="submit" name ="submit" class="btn btn-danger">
+						Так
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+						Ні 
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="display: none;" class="modal fade" id="modal" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header borderless">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+				<h4 class="modal-title">Видалити банер?</h4>
+			</div>
+			<div class="modal-body">
+				<form method="post" class = "delete_form">
+					<input type="hidden" name="id" class="id-modal" />
+					<button type="submit" name ="submit" class="btn btn-danger">
+						Так
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+						Ні 
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="display: none;" class="modal fade" id="create-banner" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header borderless">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+				<h4 class="modal-title">Додати банер</h4>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="/admin/banners/add" enctype="multipart/form-data" class = "create_form">
+					<div class="form-group">
+						<input class="form-control"  name="pic" placeholder="Пікча" type="file" value="">		
+					</div>
+					<div class="form-group">
+						<input class="form-control" name="sort_order" placeholder="Порядок" type="text" value="">
+					</div>
+					<button type="submit" name ="submit" class="btn btn-danger">
+						Додати
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+						Не додавати 
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$('.delete').on("click", function () {
+	var link = $(this).closest("a.delete");
+	var	url = link.data("link");
+	var tr = $(this).closest("tr");
+	var	id = tr.data("id");
+	$('.delete_form').attr("action", url);
+	$('.id-modal').attr("value", id);
+});
+$('.change-order-trigger').on("click", function () {
+	var link = $(this).closest("a.change-order-trigger");
+	var	url = link.data("link");
+	var tr = $(this).closest("tr");
+	var	id = tr.data("id");
+	var order = tr.data("order");
+	$('.change-order-form').attr("action", url);
+	$('.id-change-order').attr("value", id);
+	$('.order').attr("value", order);
+});
+</script>

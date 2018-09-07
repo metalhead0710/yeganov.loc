@@ -1,0 +1,13 @@
+<h2 class="text-center"><?=$photoCat->name?></h2>
+<div id="photo">
+	<div class="photo-box">
+		<?php foreach ($photos as $photo) :?>
+			<div class="photo-item">
+				<a class="photo-link" href="/upload/photos/<?=$photoCat->folder?>/<?=$photo->pic?>">
+					<img src="/upload/photos/<?=$photoCat->folder?>/thumbs/<?=$photo->pic?>" alt="" />
+				</a>
+			</div>
+		<?php endforeach ;?>
+	</div>	
+</div>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?=$pageTitle?> | Yeganov Project</title>
+    <link href="/assets/img/favicon.png" rel="shortcut icon" type="image/png" />
+    <link rel="stylesheet" href="/assets/libs/bootstrap/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="/assets/libs/fa/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/css/sb-admin.css" rel="stylesheet">
+    <script src="/assets/libs/jQuery/jquery-3.2.0.min.js"></script>
+	<script src="/assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/plugins/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+ <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/img/logo.png" />
+                </a>
+            </div>
+            <!-- Верхнє меню -->
+            <ul class="nav navbar-right top-nav">
+                <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	<i class="fa fa-user-circle"></i>
+                    	<span class="hidden-xs"> Верховний Адмін </span>
+                    	<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/user/logout"><i class="fa fa-fw fa-sign-out"></i> Вийти </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Бокове меню -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="/admin/"><i class="fa fa-fw fa-dashboard"></i> Головна</a>
+                    </li>
+                    <li>
+                        <a href="/admin/banners"><i class="fa fa-fw fa-photo"></i> Банери</a>
+                    </li>
+                    <li>
+                        <a href="/admin/news"><i class="fa fa-fw fa-newspaper-o"></i> Новини</a>
+                    </li>
+                    <li>
+                        <a href="/admin/about"><i class="fa fa-fw fa-users"></i> Про нас</a>
+                    </li>
+                    <li>
+                        <a href="/admin/photo"><i class="fa fa-fw fa-file-image-o"></i> Фото</a>
+                    </li>
+                    <li>
+                        <a href="/admin/music"><i class="fa fa-fw fa-file-audio-o"></i> Музика</a>
+                    </li>
+                    <li>
+                        <a href="/admin/video"><i class="fa fa-fw fa-file-video-o"></i> Відео</a>
+                    </li>
+					<li>
+                        <a href="/admin/contacts"><i class="fa fa-fw fa-link"></i> Контакти </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+            <div class="container-fluid main-content">
+                <!-- Сторінка -->
+                <div class="row">
+                    <div class="col-lg-12">
+						<div class="vmist">
+						<?php include_once($contentPage); ?>
+						</div>
+					</div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <footer class="text-center">
+    	© <?php echo date("Y");?>. Проект Віталія Єганова/YEGANOV Project. Всі права захищено.
+    </footer>
+    <!-- /#wrapper -->
+    <?php if (isset($pageScript)) :?>
+    	<script type="text/javascript" src="/assets/js/pages/<?=$pageScript?>"></script>
+    <?php endif;?>
+    <SCRIPT type="text/javascript">
+		$(function() {
+			var url=document.location.href;
+			$.each($('.side-nav a'),function(){
+				if(this.href==url)
+				{
+				   $(this).closest("li").addClass("active");
+				}
+			});
+		});
+	</SCRIPT>
+	</body>
+</html>

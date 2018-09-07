@@ -1,0 +1,304 @@
+<!-- Головна -->
+<div id="home" class="text-center">
+  <div class="container">
+    <h1> YEGANOV Project </h1>
+    <h3>Ukrainian Rock Music</h3>
+    <a href="#news"><img src="/assets/img/arrow.png" class="img-responsive"/></a>
+  </div>
+</div>
+<!-- Новини -->
+<div id="news" class="box box-black guitar">
+  <div class="container">
+    <h1 class="text-center pd"> Новини </h1>
+      <?php foreach ($news as $new) : ?>
+        <div class="post">
+          <div class="row">
+            <div class="col-md-2">
+                <?php if (!empty($new->pic)) : ?>
+                  <img src="/upload/images/posts/<?= $new->pic ?>" class="img-responsive mg-tp-25"/>
+                <?php else : ?>
+                  <img src="http://placehold.it/250x250" class="img-responsive mg-tp-25"/>
+                <?php endif; ?>
+                <? if (!empty($new->place)) : ?>
+                  <div style="margin-top: 10px">
+                    <strong>Місце:</strong>&nbsp;&nbsp;
+                      <?= $new->place ?>
+                  </div>
+                <?php endif; ?>
+                <? if (!empty($new->date)) : ?>
+                  <div><strong>Дата:</strong>&nbsp;&nbsp;
+                      <?= date_format(date_create($new->date), 'd-m-Y'); ?>
+                  </div>
+                <?php endif; ?>
+                <? if (!empty($new->time)) : ?>
+                  <div><strong>Час:</strong> &nbsp;&nbsp;
+                      <?= date_format(date_create($new->time), 'H:i'); ?>
+                  </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-10">
+              <h3 class="text-center">
+                  <?= $new->title ?>
+              </h3>
+              <div class="txt">
+                <p class="text-justify">
+                    <?= $new->newtext ?>
+                </p>
+              </div>
+            </div>
+          </div>
+          <a href="/news/view/<?=$new->id?>" class="btn btn-success pull-right view-one">
+            <i class="fa fa-eye"></i>
+            Переглянути
+          </a>
+        </div>
+      <?php endforeach; ?>
+
+    <a href="/news" class="btn btn-danger moar pull-right" style="margin-bottom: 30px;">Всі новини</a>
+  </div>
+</div>
+<!-- Про нас -->
+<div id="about" class="box box-white piano">
+  <div class="container">
+    <h1 class="text-center pd"> Про нас </h1>
+    <p style="font-size: 16px;">Yeganov Project було створено на основі старого складу гурту Джигура. Музика – вдале поєднання
+      стилів від рок-н-роллу до фанку та від блюзу до хеві металу.</p>
+    <h3 class="headers-h3">Склад</h3>
+    <div class="row">
+        <?php foreach ($people
+
+                       as $person): ?>
+    <?php if (count($people) % 4 == 0) : ?>
+      <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+          <?php else : ?>
+        <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+            <?php endif; ?>
+          <img src="/upload/images/people/<?= $person->pic ?>"/>
+          <h3 class="text-center"><?= $person->name ?></h3>
+          <h4 class="text-center"><?= $person->position ?></h4>
+          <p class="text-justify"><?= $person->text ?></p>
+        </div>
+          <?php endforeach; ?>
+      </div>
+        <?php if (count($exPeople) > 0) : ?>
+      <h3 class="headers-h3">Колишні учасники</h3>
+      <div class="row">
+          <?php foreach ($exPeople
+
+                         as $person): ?>
+      <?php if (count($exPeople) % 4 == 0) : ?>
+        <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+            <?php else : ?>
+          <div class="col-md-4 col-sm-6 col-xs-12 text-center">
+              <?php endif; ?>
+            <img src="/upload/images/people/<?= $person->pic ?>"/>
+            <h3 class="text-center"><?= $person->name ?></h3>
+            <h4 class="text-center"><?= $person->position ?></h4>
+            <p class="text-justify"><?= $person->text ?></p>
+          </div>
+            <?php endforeach; ?>
+        </div>
+          <?php endif; ?>
+      </div>
+    </div>
+    <!-- Фото -->
+    <div id="photo" class="box box-black bass">
+      <div class="container">
+        <h1 class="text-center pd"> Фото </h1>
+        <div class="gallery">
+            <?php if (count($photoCats) > 1) : ?>
+              <div class="photo-box">
+                  <?php foreach ($photoCats as $photocat) : ?>
+                    <div class="photo-item">
+                      <a class="photocat-link" href="/photos/<?= $photocat->id ?>">
+                        <img class="photo-link" src="/upload/photos/<?= $photocat->folder ?>/thumbs/<?= $photocat->pic ?>"/>
+                        <span class="photocat-name"><?= $photocat->name ?></span>
+                      </a>
+                    </div>
+                  <?php endforeach; ?>
+              </div>
+            <?php else : ?>
+              <div class="photo-box">
+                  <?php foreach ($photos as $photo) : ?>
+                    <div class="photo-item">
+                      <a class="photo-link" href="/upload/photos/<?= $photoCats{1}->folder ?>/<?= $photo->pic ?>">
+                        <img src="/upload/photos/<?= $photoCats{1}->folder ?>/thumbs/<?= $photo->pic ?>" alt=""/>
+                      </a>
+                    </div>
+                  <?php endforeach; ?>
+              </div>
+            <?php endif; ?>
+        </div>
+      </div>
+    </div>
+    <!-- Музика -->
+    <div id="music" class="box box-white drums">
+      <div class="container">
+        <h1 class="text-center pd"> Музика </h1>
+        <div class="row pd">
+          <div class="col-md-6">
+            <img src="/assets/img/music.jpg" class="img-responsive"/>
+          </div>
+          <div class="col-md-6">
+            <div id="musicplayer" class="aplayer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Відео -->
+    <div id="video" class="box box-black microphone">
+      <div class="container">
+        <h1 class="text-center pd"> Відео </h1>
+        <div class="row pd">
+          <div class="col-md-12">
+            <div class="video-container">
+                <?php foreach ($videos as $video) : ?>
+                  <div class="video-item">
+
+                    <h3><?= $video->title ?></h3>
+                    <iframe src="https://www.youtube.com/embed/<?= $video->url ?>" frameborder="0" width="320" height="180"
+                            allowfullscreen></iframe>
+                  </div>
+
+                <?php endforeach; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Райдер -->
+    <div id="raider" class="box box-white bass1">
+      <div class="container">
+        <h1 class="text-center pd"> Райдер </h1>
+        <div class="row">
+          <h3 class="text-center">ТЕХНІЧНИЙ РАЙДЕР</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="">
+              <img src="/assets/img/raider.jpg" class="img-responsive"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <ol class="list-group">
+              <li class="list-group-item">Барабани (ударна установка) стандартної комплектації: бас, 2 томи, флор-том, стійки
+                (хай-хет, креш, райд), підставка під робочий барабан та стільчик. При необхідності барабани мають бути підзвучені.
+              </li>
+              <li class="list-group-item">Ламповий гітарний комбік потужністю відповідного рівня концертної площадки, вільне
+                джерело живлення 220 В, підставка для гітари.
+              </li>
+              <li class="list-group-item">Ламповий басовий комбік потужністю відповідного рівня концертної площадки, підставка для
+                гітари.
+              </li>
+              <li class="list-group-item">Три мікрофонних стійки.</li>
+              <li class="list-group-item">Три вокальних мікрофони рівня не нижче Shure 58 (1 основний вокал + 2 бек-вокал).</li>
+              <li class="list-group-item">Один DI-бокс для синтезатора.</li>
+              <li class="list-group-item">Монітори для кожного учасника (для барабанів бажано 2)</li>
+              <li class="list-group-item">На відкритих концертних площадках бажано два простріла.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="text-center">
+          <p class="text-center" style="background: #fff; color: #A21319; padding: 15px;">Обов’язкова вимога – саундчек гурту в
+            присутності звукорежисера та сценічного техніка.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Контакти -->
+    <div id="contacts" class="box box-black amp">
+      <div class="container">
+        <h1 class="text-center pd"> Контакти </h1>
+        <div class="row pd">
+          <div class="col-md-offset-2 col-md-4">
+              <?php if (!empty($contact->tel1)): ?>
+                <h4>
+                  <a href="tel:<?= $contact->tel1 ?>">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-phone fa-stack-1x fa-inverse faa-wrench animated-hover"></i>
+						</span>
+                    &nbsp;&nbsp;<?= $contact->tel1 ?>
+                  </a>
+                </h4>
+              <?php endif; ?>
+              <?php if (!empty($contact->tel2)): ?>
+                <h4>
+                  <a href="tel:<?= $contact->tel2 ?>">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-mobile fa-stack-1x fa-inverse faa-wrench animated-hover"></i>
+						</span>
+                    &nbsp;&nbsp;<?= $contact->tel2 ?>
+                  </a>
+                </h4>
+              <?php endif; ?>
+              <?php if (!empty($contact->email)): ?>
+                <h4>
+                  <a href="mailto:<?= $contact->email ?>">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-envelope fa-stack-1x fa-inverse faa-wrench animated-hover"></i>			
+						</span>
+                    &nbsp;&nbsp;<?= $contact->email ?>
+                  </a>
+                </h4>
+              <?php endif; ?>
+            <h3>Ми у соціальних мережах</h3>
+            <p style="font-size:18px;">
+                <?php if (!empty($contact->vk)): ?>
+                  <a href="<?= $contact->vk ?>">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-vk fa-stack-1x fa-inverse faa-wrench animated-hover"></i>
+						</span>
+                  </a>
+                <?php endif; ?>
+                <?php if (!empty($contact->facebook)): ?>
+                  <a href="<?= $contact->facebook ?>">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-facebook fa-stack-1x fa-inverse faa-wrench animated-hover"></i>
+						</span>
+                  </a>
+                <?php endif; ?>
+                <?php if (!empty($contact->youtube)): ?>
+                  <a href="<?= $contact->youtube ?>">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-youtube-play fa-stack-1x fa-inverse faa-wrench animated-hover"></i>
+						</span>
+                  </a>
+                <?php endif; ?>
+            </p>
+          </div>
+          <div class="col-md-4">
+
+            <form id="contact-form">
+              <div class="form-group">
+                <input class="form-control" name="name" class="name" placeholder="Ім'я" type="text" value="" required>
+                <span id="title"></span>
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="email" placeholder="Ваш Email" class="email" type="text" required>
+                <span id="email"></span>
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="phone" placeholder="Ваш телефон" type="text">
+
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" cols="20" class="content" data-val="true" name="content" required
+                          placeholder="Текст повідомлення" rows="5"></textarea>
+                <span id="content"></span>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-danger email-us">
+                  Відправити
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="results"></div>

@@ -1,0 +1,10 @@
+.video:hover {
+	background: #fff;
+}
+.btn-group {
+	display: block;
+	margin-bottom: 60px;
+}
+.btn-group > a{
+	width: 50%;
+}

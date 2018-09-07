@@ -1,0 +1,41 @@
+<div class="page-header">
+	<h1>Музика
+		<small>тут можна відредагувати музику</small>
+	</h1>
+</div>
+
+<form enctype="multipart/form-data" class="form" method="post">
+	<div class="form-group">
+		<input class="form-control" name="title" placeholder="Назва" type="text" value="<?=$song->title?>">		
+	</div>
+	<div class="form-group">
+		<input class="form-control" name="author" placeholder="Виконавець" type="text" value="<?=$song->author?>">
+	</div>
+	<div class="form-group">
+		<label>Пісня</label><br />
+		<?php if (!empty($song->songFileName)):?>
+			<audio class="mg-bt-5" src="<?=$song->songUrl?>" controls="controls"></audio>
+		<?php endif;?>
+		<input class="form-control"  name="song" type="file" value="">		
+	</div>	
+	<div class="form-group">
+		<label>Обкладинка</label><br />
+		<?php if (!empty($song->picFileName)):?>
+			<img class="mg-bt-5" src="<?=$song->picUrl?>" />
+		<?php endif;?>
+		<input class="form-control"  name="pic" type="file" value="">		
+	</div>
+	<div class="form-group">
+		<input class="form-control" name="sort_order" placeholder="Порядок" type="text" value="<?=$song->sort_order?>">
+	</div>
+	<div class="form-group">	
+		<button type="submit" name="submit" class="btn btn-primary save">
+		<i class="fa fa-check"></i>
+			Зберегти
+		</button>
+		<a href="/admin/music" class="btn btn-default">
+			<i class="fa fa-long-arrow-left"></i>
+				Назад
+		</a>
+	</div>
+</form>

@@ -1,0 +1,67 @@
+<div class="page-header">
+	<h1>Контакти
+		<small>тут можна змінити контакти у разі чого</small>
+	</h1>
+</div>
+
+<?=(!empty($feedback)) ? $feedback : ''?>
+<form method="post">
+     <div class="form-group">
+		<label for="Email">Email</label>
+		<div class="input-group">
+			<span class="input-group-addon">
+				<i class="fa fa-envelope-o"></i>
+			</span>
+			<input class="form-control" id="Email" name="email" placeholder="Email" type="text" value="<?=$contact->email ?>">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="tel1">Телефон</label>
+		<div class="input-group">
+			<span class="input-group-addon">
+				<i class="fa fa-phone"></i>
+			</span>
+			<input class="form-control" id="tel1" name="tel1" placeholder="Телефон" type="text" value="<?=$contact->tel1 ?>">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="tel2">Ще один телефон</label>
+		<div class="input-group">
+			<span class="input-group-addon">
+				<i class="fa fa-mobile"></i>
+			</span>
+			<input class="form-control" id="tel2" name="tel2" placeholder="Телефон мобільний" type="text" value="<?=$contact->tel2 ?>">
+		</div>
+	</div>	
+	<div class="form-group">
+		<label for="vk">Посилання на спільноту ВК</label>
+		<div class="input-group">
+			<span class="input-group-addon">
+				<i class="fa fa-vk"></i>
+			</span>
+			<input class="form-control" id="vk" name="vk" placeholder="vk" type="text" value="<?=$contact->vk?>">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="vk">Посилання на спільноту Facebook</label>
+		<div class="input-group">
+			<span class="input-group-addon">
+				<i class="fa fa-facebook"></i>
+			</span>
+			<input class="form-control" id="facebook" name="facebook" placeholder="facebook" type="text" value="<?=$contact->facebook?>">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="youtube">Посилання на канал YouTube</label>
+		<div class="input-group">
+			<span class="input-group-addon">
+				<i class="fa fa-youtube-play"></i>
+			</span>
+			<input class="form-control" id="youtube" name="youtube" placeholder="youtube" type="text" value="<?=$contact->youtube?>">
+		</div>
+	</div>
+		<button type="submit" name="submit" class="btn btn-primary">
+		<i class="fa fa-check"></i>
+			Зберегти
+		</button>	
+</form>

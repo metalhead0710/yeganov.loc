@@ -1,0 +1,95 @@
+<div class="page-header">
+	<h1>Новинами
+		<small>тут можна додавати, редагувати та видаляти новини</small>
+	</h1>
+</div>
+<?=(!empty($feedback)) ? $feedback : ''?>
+<a href="/admin/news/create/" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Створити новину</a>
+<div class="clearfix"></div>
+ <div class="table-container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Заголовок</th>
+				<th>Місце</th>
+				<th>Афіша</th>
+				<th>Дата та час</th>
+				<th>Дії</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($news as $new) :?>
+			<tr data-id="<?=$new->id ?>">
+				<td>
+					<?=$new->title?>
+				</td>
+				<td>
+					<?=$new->place ?>
+				</td>
+				<td class="pic-in-td">
+					<?php if (!empty($new->pic)) :?>
+						<img src="/upload/images/posts/thumbs/<?=$new->pic?>" class="img-responsive" />
+					<?php else :?>
+						<img src="http://placehold.it/100x70?text=:(" class="img-responsive" />
+					<?php endif;?>
+				</td>
+				<td>
+					<?=date_format(date_create($new->date), 'd-m-Y');?>
+					<br>
+					<?=date_format(date_create($new->time), 'H:i');?>
+				</td>
+				<td>
+					<div class="btn-group-vertical">
+						<a href="/admin/news/update/<?=$new->id ?>" title="Редагувати" class="btn btn-primary">
+							<i class="fa fa-edit"></i>
+						</a> 
+						<a href="#modal" data-toggle='modal' title="Видалити" data-link="/admin/news/delete/<?=$new->id ?>" class="btn btn-danger delete">
+							<i class="fa fa-times"></i>
+						</a> 
+					</div>
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+		<tfoot>
+			<tr>
+		        <td colspan="12">
+		            <div class="pagination-wrapper pagination-centered text-center mg-tp-20">
+		                <?=$pagination->get(); ?>
+		            </div>                        
+		        </td>
+		    </tr>
+		</tfoot>
+	</table>
+ </div>
+<div style="display: none;" class="modal fade" id="modal" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header borderless">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+				<h4 class="modal-title">Видалити новину?</h4>
+			</div>
+			<div class="modal-body">
+				<form method="post" class = "delete_form">
+					<input type="hidden" name="id" class="id-modal" />
+					<button type="submit" name ="submit" class="btn btn-danger">
+						Так
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+						Ні 
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$('.delete').on("click", function () {
+	var link = $(this).closest("a.delete");
+	var	url = link.data("link");
+	var tr = $(this).closest("tr");
+	var	id = tr.data("id");
+	$('.delete_form').attr("action", url);
+	$('.id-modal').attr("value", id);
+});
+</script>

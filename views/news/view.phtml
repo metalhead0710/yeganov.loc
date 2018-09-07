@@ -1,0 +1,41 @@
+<div class="post">
+    <div class="row">
+        <div class="col-md-2">
+            <?php if (!empty($new->pic)) : ?>
+                <img src="/upload/images/posts/<?= $new->pic ?>" class="img-responsive mg-tp-25"/>
+            <?php else : ?>
+                <img src="http://placehold.it/250x250" class="img-responsive mg-tp-25"/>
+            <?php endif; ?>
+            <? if (!empty($new->place)) : ?>
+                <div style="margin-top: 10px">
+                    <strong>Місце:</strong>&nbsp;&nbsp;
+                    <?= $new->place ?>
+                </div>
+            <?php endif; ?>
+            <? if (!empty($new->date)) : ?>
+                <div><strong>Дата:</strong>&nbsp;&nbsp;
+                    <?= date_format(date_create($new->date), 'd-m-Y'); ?>
+                </div>
+            <?php endif; ?>
+            <? if (!empty($new->time)) : ?>
+                <div><strong>Час:</strong> &nbsp;&nbsp;
+                    <?= date_format(date_create($new->time), 'H:i'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="col-md-10">
+            <h3 class="text-center">
+                <?= $new->title ?>
+            </h3>
+            <div class="txt">
+                <p class="text-justify">
+                    <?= $new->newtext ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a href="/news/" class="btn btn-success pull-right view-one">
+        <i class="fa fa-long-arrow-left"></i>
+        Назад
+    </a>
+</div>

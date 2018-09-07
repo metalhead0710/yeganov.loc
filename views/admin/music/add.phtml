@@ -1,0 +1,36 @@
+<div class="page-header">
+	<h1>Музика
+		<small>тут можна додати музику</small>
+	</h1>
+</div>
+
+<form enctype="multipart/form-data" class="form" method="post">
+	<div class="form-group">
+		<input class="form-control" name="title" placeholder="Назва" type="text" value="">
+		<span id="error"></span>
+	</div>
+	<div class="form-group">
+		<input class="form-control" name="author" placeholder="Виконавець" type="text" value="">
+	</div>
+	<div class="form-group">
+		<label>Пісня</label>
+		<input class="form-control"  name="song" type="file" value="">		
+	</div>
+	<div class="form-group">
+		<label>Обкладинка</label>
+		<input class="form-control"  name="pic" type="file" value="">		
+	</div>
+	<div class="form-group">
+		<input class="form-control" name="sort_order" placeholder="Порядок" type="text" value="">
+	</div>
+	<div class="form-group">	
+		<button type="submit" name="submit" class="btn btn-primary save">
+		<i class="fa fa-check"></i>
+			Додати пісню
+		</button>
+		<a href="/admin/music" class="btn btn-default">
+			<i class="fa fa-long-arrow-left"></i>
+				Назад
+		</a>
+	</div>
+</form>
