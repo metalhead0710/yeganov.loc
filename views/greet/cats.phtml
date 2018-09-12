@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Нелегкий вибір, хоча хуйня, легкий)</title>
+</head>
+<style>
+  .col-md-3, .col-md-12 {
+    padding: 7px;
+  }
+
+  .box {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    transition: .2s;
+  }
+
+  .box:hover {
+    transform: scale(1.02)
+  }
+
+  img {
+    height: 170px !important;
+    margin-bottom: 25px;
+  }
+</style>
+<body>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <h1 class="text-center">Який з цих пхрів лишній?</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+        <?php for ($i = 1; $i <= 12; $i++) : ?>
+          <div class="col-md-3">
+            <div class="box">
+              <h3 class="number text-center"><?= $i ?></h3>
+              <img src="/assets/img/cats/cat<?= $i ?>.jpg" alt="" class="img-responsive"/>
+            </div>
+          </div>
+        <?php endfor; ?>
+    </div>
+  </div>
+</main>
+
+</body>
+<script src="/assets/libs/jQuery/jquery-3.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/js/cats.js"></script>
+</html>

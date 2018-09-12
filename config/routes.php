@@ -48,6 +48,9 @@ return array(
     'photos/([0-9]+)' => 'photo/view/$1',
     'news/view/([0-9]+)' => 'news/view/$1',
     'news' => 'news/index',
+    'natal/2tXu60icNmTbrs0CiA2ukbF3HExCpjf8RxLJ21VCkhnA7sAncNbFlYwqBVInUmOv9htuJgwdu2jpUkEIHssWA7Tek8yDxLGWbXsIszAWs1EAWgXX3UCaZDGdMzcp15s0u69AbI3yOiITzRKx3HSSXTBW4qy7tsG085bsU1tKOPb1rVdRKlZlVmpoFvE955uJqHIftEyIzPs5mH5ayW4viQ5OrirIfkJDFCpJWjXpxjOdqUJqmD4MnK2c34MV7ax' => 'greet/index',
+    'natal/LkXunYDhoUAYxNrQ3OnImdNKjaTMMEbOd5pVtkDpRpfwvrmFHskt2Nv68AF913XhaB0q0DqVbwFDaYXGwYGzrQhVj67IlT6iTlhKbmrOcgBT11gnHa9ilYe3LOxRveJsV1rz5Z10VN2GzZRQI45bwIbIZSX6amJsDNbuO3l3nqIWRsSyVnIw6Sucswc26U6pa1dd6NuMMZUecP7CJRY4rOz1CHcPyLqPdWq88aE65Zri55vVysG85djhd5Hdr7Q' => 'greet/cats',
+    'natal/TtsmzKkg8hi5ZIE2t3dZ3ziUIEH4bG1JHT3vXDE90VQwKFMWSwQvZfw0wiprMEmfWOpEcnF66UOt1kBJpKKW3KzXvhsQBgmDlTAfFdFhJzCxUrIc9fyDo8Atv1WhHXxAfbHEGnpe0WN6MuCwwAmgP0xe7TpQXiREYdXVGT6v8cCsY9ItZenuT5boaTd7woWe8AQpCaZduB98RzPSS4Sv52XH9TsjUUoi9G8bw2OiYUlp8YBa10gWplVMfk8xfPw' => 'greet/atlast',
     '' => 'home/index',
 );
 
