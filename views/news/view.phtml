@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col-md-2">
             <?php if (!empty($new->pic)) : ?>
+              <a href="/upload/images/posts/<?= $new->pic ?>" class="poster">
                 <img src="/upload/images/posts/<?= $new->pic ?>" class="img-responsive mg-tp-25"/>
+              </a>
             <?php else : ?>
                 <img src="http://placehold.it/250x250" class="img-responsive mg-tp-25"/>
             <?php endif; ?>

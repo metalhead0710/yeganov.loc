@@ -27,7 +27,10 @@ $(function () {
 			}
 		}
 	});
-	$('.gallery a').simpleLightbox();	
+	$('.gallery a').simpleLightbox();
+  $('a.poster').simpleLightbox({
+    nav: false
+  });
 	$(".email-us").on('click', function() {
 		$("#contact-form").validate({
 		  submitHandler: function() {
